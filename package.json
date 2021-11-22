@@ -6,7 +6,6 @@
   "scripts": {
     "start": "nodemon src/index.ts",
     "build": "tsc",
-    "postbuild": "echo aaaaaaaaaaa",
     "clean": "rm -rf ./lib",
     "test": "jest",
     "test:watch": "jest --watch"
