@@ -1,14 +1,20 @@
 import asyncHandler from 'express-async-handler';
+import { Service } from 'typedi';
 
-import * as userService from './user.service';
+import { UserService } from './user.service';
 
-export const getUsers = asyncHandler(async (req, res) => {
-  const users = await userService.getUsers();
-  res.json(users);
-});
+@Service()
+export class UserController {
+  constructor(private readonly userService: UserService) {}
 
-export const getUserById = asyncHandler(async (req, res) => {
-  const { id } = req.params;
-  const user = await userService.getUser(id);
-  res.json(user);
-});
+  public getAllUsers = asyncHandler(async (req, res) => {
+    const users = await this.userService.getUsers();
+    res.json(users);
+  });
+
+  public getUserByName = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    const user = await this.userService.getUser(id);
+    res.json(user);
+  });
+}

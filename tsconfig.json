@@ -1,21 +1,35 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
+    // project options
+    "lib": [],
+    "outDir": "dist",
+    "rootDir": "src",
+    "target": "es5",
+    // module resolution
     "module": "CommonJS",
     "moduleResolution": "node",
-    "outDir": "dist",
+    "esModuleInterop": true,
     "baseUrl": "./src",
     "paths": {
       "@app/*": ["./*", "index.ts"],
       "@config/*": ["config/*", "config"],
+      "@features/*": ["features/*", "features"],
       "@middlewares/*": ["middlewares/*", "middlewares"],
       "@utils/*": ["utils/*", "utils"]
     },
-    "rootDir": "src",
+    // source maps
     "sourceMap": true,
-    "target": "es5",
-    "lib": []
+    // strict checking and linting
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "noImplicitAny": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    // Experimental (used for dependency injection)
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
+  "compileOnSave": true,
   "exclude": ["node_modules", "**/*.[spec|test].ts"],
   "include": ["src/**/*", "test/user"]
 }

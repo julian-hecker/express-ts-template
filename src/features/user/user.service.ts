@@ -1,10 +1,18 @@
-export const getUsers = async () => {
-  return [1, 2, 3, 4, 5, 6, 7, 8, 9];
-};
+import { Service } from 'typedi';
 
-export const getUser = async (id: string) => {
-  const users = {
-    '1': 'aaa',
+import { UserRepository } from './user.repository';
+
+@Service()
+export class UserService {
+  constructor(private userRepository: UserRepository) {}
+
+  public getUsers = async () => {
+    const users = await this.userRepository.getAllUsers();
+    return users;
   };
-  return users[id];
-};
+
+  public getUser = async (name: string) => {
+    const user = await this.userRepository.getUserByName(name);
+    return user;
+  };
+}
