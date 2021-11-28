@@ -1,9 +1,11 @@
 import dotenv from 'dotenv';
 
-dotenv.config();
+const isEnv = dotenv.config();
+
+if (!isEnv) throw new Error('Could not find .env file!');
 
 export const env = process.env.NODE_ENV;
 
 export const config = {
-  port: process.env.PORT,
+  port: parseInt(process.env.PORT ?? '3000'),
 };
