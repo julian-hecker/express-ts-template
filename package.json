@@ -7,8 +7,9 @@
     "start": "nodemon src/index.ts",
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "clean": "rm -rf ./dist",
+    "clean": "rm -rf ./dist ./docs",
     "docs": "apidoc -f \".*.routes.ts$\" -i src -o docs",
+    "docs:watch": "nodemon --watch **/*.routes.ts --exec \"npm run docs\" src/index.ts ",
     "test": "jest",
     "test:watch": "jest --watch"
   },
