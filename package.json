@@ -1,13 +1,14 @@
 {
-  "name": "express-ts-template",
-  "version": "1.0.0",
+  "name": "express-typescript-template",
+  "version": "1.0.1",
   "description": "Complete template for an Express app using Typescript",
   "main": "src/index.ts",
   "scripts": {
     "start": "nodemon src/index.ts",
     "build": "tsc",
-    "clean": "rm -rf ./lib",
-    "docs": "apidoc -f \".*.routes.ts$\" -i ./src/features/user -o docs",
+    "build:watch": "tsc --watch",
+    "clean": "rm -rf ./dist",
+    "docs": "apidoc -f \".*.routes.ts$\" -i src -o docs",
     "test": "jest",
     "test:watch": "jest --watch"
   },

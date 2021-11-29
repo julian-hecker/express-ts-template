@@ -3,10 +3,7 @@
 import { getMockReq, getMockRes } from '@jest-mock/express';
 import httpError, { HttpError } from 'http-errors';
 
-import {
-  notFoundHandler,
-  errorHandler,
-} from './errorHandler';
+import { notFoundHandler, errorHandler } from '../../src/middlewares';
 
 let err: HttpError;
 let req = getMockReq();
